@@ -12,7 +12,14 @@
             {% for entry in entries %}
             <tr>
                 <td>{{ entry[0] }}</td>
-                <td>{{ entry[1] }}</td>
+                <td>
+                    <form action="fetch" method="post">
+                        Path: <input type="text" name="fetchpath" value="{{ entry[1] }}" size="150"><br>
+                        Passphrase: <input type="password" name="passphrase"><br>
+                        <input type="hidden" name="path" value="{{ path }}">
+                        <input type="submit" value="Fetch">
+                    </form>
+                </td>
             </tr>
             {% endfor %}
         </table>
